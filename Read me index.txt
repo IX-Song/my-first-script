@@ -1,6 +1,8 @@
 Lightlanguage portal v1 25-3-2026
 
-https://github.com/IX-Song/my-first-script/blob/main/ll%20portal%20-%20720WebShareName.mov
+<video autoplay loop muted playsinline width="400">
+  <source src="ll portal -720WebShareName.mov" type="video/mp4">
+</video>
 
 is officially alive now:
 ✨ glowing wavy title
