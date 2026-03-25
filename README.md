@@ -29,4 +29,20 @@ Much love,
 
 <img width="250" height="150" alt="IX-Song" src="https://github.com/user-attachments/assets/afc3afcc-cc76-4eed-a308-e4ff96e60a2e" />
 
+-----------------------------
+
+### 💾 Download & Try Locally
+You can download the portal and try it on your own computer:
+CLICK - - HERE - - - - - - - - - →
+## 🌟 💾 Download Portal ZIP 🌟
+1. Download the ZIP
+2. Unpack the ZIP
+	- On Windows: Right-click → Extract All…
+	- On Mac: Double-click the ZIP file
+	- On Linux: Right-click → Extract Here or use your archive manager
+3. Open the portal
+	- Go into the extracted folder
+	- Double-click index.html
+	- Your magical portal will open in your browser! ✨🛸
+Have fun exploring the stars and sparkles! 🌙💫
 
