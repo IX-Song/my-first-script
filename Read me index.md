@@ -21,5 +21,5 @@ Much love!
 
 or the mp4:
 <video autoplay loop muted playsinline width="400">
-  <source src="ll+portal.mp4" type="video/mp4">
+  <source src="ll%20portal.mp4" type="video/mp4">
 </video>
