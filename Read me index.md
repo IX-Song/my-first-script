@@ -1,7 +1,7 @@
 Lightlanguage portal v1 25-3-2026
 
 <video autoplay loop muted playsinline width="400">
-  <source src="ll portal -720WebShareName.mov" type="video/mp4">
+  <source src="ll+portal.gif" type="video/mp4">
 </video>
 
 is officially alive now:
