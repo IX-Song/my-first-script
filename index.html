@@ -1,151 +1,202 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Magic Portal</title>
-    <style>
-      /* Background */
-      body {
-        margin:0;
-        height:100vh;
-        background-image: url('stone.jpg');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        text-align:center;
-        font-family: sans-serif;
-        overflow: hidden;
-      }
+<head>
+  <meta charset="UTF-8">
+  <title>Magic Lightlanguage Portal</title>
+  <style>
+    /* Background */
+    body {
+      margin:0;
+      height:100vh;
+      background-image: url('stone.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align:center;
+      font-family: sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
 
-      /* Portal title glow */
-      #title {
-        margin-top: 50px;
-        font-size: 3em;
-        color: white;
-        text-shadow: 0 0 10px rgba(255,150,200,0.8);
-        animation: glow 12s ease-in-out infinite;
-        transition: transform 0.7s ease;
-      }
+    /* Portal title glow */
+    #title {
+      margin-top: 50px;
+      font-size: 3em;
+      color: white;
+      text-shadow: 0 0 10px rgba(255,150,200,0.8);
+      animation: glow 12s ease-in-out infinite;
+      transition: transform 0.7s ease;
+    }
 
-      #title:hover {
-        transform: scale(1.1);
-      }
+    #title:hover {
+      transform: scale(1.1);
+    }
 
-      @keyframes glow {
-        0% { text-shadow: 0 0 5px rgba(255,150,200,0.4); }
-        50% { text-shadow: 0 0 20px rgba(255,150,200,1); }
-        100% { text-shadow: 0 0 5px rgba(255,150,200,0.4); }
-      }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px rgba(255,150,200,0.4); }
+      50% { text-shadow: 0 0 20px rgba(255,150,200,1); }
+      100% { text-shadow: 0 0 5px rgba(255,150,200,0.4); }
+    }
 
-      /* Magic button */
-      #magicBtn {
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        color: gold;
-        background-color: black;
-        box-shadow: 0 0 10px gold;
-        position: relative;
-        overflow: visible;
-        transition: transform 0.2s;
-        margin-top: 50px;
-      }
+    /* Magic button */
+    #magicBtn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      color: gold;
+      background-color: black;
+      box-shadow: 0 0 10px gold;
+      position: relative;
+      overflow: visible;
+      transition: transform 0.2s;
+      margin-top: 250px; /* pushed lower */
+    }
 
-      #magicBtn.clicked {
-        transform: scale(1.2);
-        animation: glowBtn 0.5s ease-in-out;
-      }
+    #magicBtn.clicked {
+      transform: scale(1.2);
+      animation: glowBtn 0.5s ease-in-out;
+    }
 
-      #magicBtn::after {
-        content: "✨✨✨";
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%) scale(0);
-        color: gold;
-        font-size: 20px;
-        opacity: 0;
-        pointer-events: none;
-      }
+    #magicBtn::after {
+      content: "✨✨✨";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      color: gold;
+      font-size: 20px;
+      opacity: 0;
+      pointer-events: none;
+    }
 
-      #magicBtn.clicked::after {
-        animation: spark 5.5s linear forwards;
-      }
+    #magicBtn.clicked::after {
+      animation: spark 5.5s linear forwards;
+    }
 
-      @keyframes glowBtn {
-        0% { box-shadow: 0 0 10px gold; }
-        50% { box-shadow: 0 0 25px gold, 0 0 40px orange; }
-        100% { box-shadow: 0 0 10px gold; }
-      }
+    @keyframes glowBtn {
+      0% { box-shadow: 0 0 10px gold; }
+      50% { box-shadow: 0 0 25px gold, 0 0 40px orange; }
+      100% { box-shadow: 0 0 10px gold; }
+    }
 
-      @keyframes spark {
-        0% {
-          opacity: 1;
-          transform: translateX(-50%) translateY(0) scale(1);
-        }
-        100% {
-          opacity: 0;
-          transform: translateX(-50%) translateY(-200px) scale(2);
-        }
-      }
-
-      /* Mouse trail sparkles */
-      .sparkle {
-        position: fixed;
-        pointer-events: none;
-        font-size: 20px;
-        color: gold;
+    @keyframes spark {
+      0% {
         opacity: 1;
-        transition: transform 2s linear, opacity 2s linear;
+        transform: translateX(-50%) translateY(0) scale(1);
       }
-    </style>
-  </head>
-  <body>
-    <h1 id="title">✨ Lightlanguage Portal ✨</h1>
-    <button id="magicBtn">Click me!</button>
-    <p id="msg"></p>
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-200px) scale(2);
+      }
+    }
 
-    <script>
-      // Button sparkle
-      const magicBtn = document.getElementById("magicBtn");
-      magicBtn.addEventListener("click", () => {
-        magicBtn.classList.add("clicked");
-        setTimeout(() => magicBtn.classList.remove("clicked"), 1000);
-      });
+    /* Mouse trail sparkles */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      font-size: 20px;
+      color: gold;
+      opacity: 1;
+      transition: transform 2s linear, opacity 2s linear;
+    }
 
-      // Mouse trail sparkles
-      let lastSparkle = 0;
-      document.addEventListener("mousemove", (e) => {
-        const now = Date.now();
-        if (now - lastSparkle < 150) return; // cooldown
-        lastSparkle = now;
-        if (Math.random() < 0.3) return;
+    /* Floating background sparkles */
+    .bg-sparkle {
+      position: absolute;
+      color: gold;
+      font-size: 10px;
+      opacity: 0.6;
+      pointer-events: none;
+      animation: floatSparkle linear infinite;
+    }
 
-        const sparkle = document.createElement("div");
-        sparkle.textContent = "✨";
-        sparkle.className = "sparkle";
+    @keyframes floatSparkle {
+      0% { transform: translateY(100vh) scale(1); opacity:0; }
+      10% { opacity:0.6; }
+      50% { opacity:0.8; }
+      100% { transform: translateY(-50px) scale(1.5); opacity:0; }
+    }
 
-        const offsetX = (Math.random() - 0.5) * 30;
-        const offsetY = (Math.random() - 0.5) * 30;
-        sparkle.style.left = e.clientX + offsetX + "px";
-        sparkle.style.top = e.clientY + offsetY + "px";
-        const size = 12 + Math.random() * 12;
-        sparkle.style.fontSize = size + "px";
-        sparkle.style.color = "gold";
+    /* Message text */
+    #msg {
+      font-size: 1.5em;
+      margin-top: 20px;
+      min-height: 2em;
+    }
 
-        document.body.appendChild(sparkle);
+  </style>
+</head>
+<body>
+  <h1 id="title">✨ Lightlanguage Portal ✨</h1>
+  <button id="magicBtn">Click me!</button>
+  <p id="msg"></p>
 
-        setTimeout(() => {
-          const moveX = (Math.random() - 0.5) * 100;
-          const moveY = -50 - Math.random() * 150;
-          const scale = 1 + Math.random();
-          sparkle.style.transform = `translate(${moveX}px, ${moveY}px) scale(${scale})`;
-          sparkle.style.opacity = 0;
-        }, 0);
+  <script>
+    // Button sparkle and text
+    const magicBtn = document.getElementById("magicBtn");
+    const msg = document.getElementById("msg");
+    const messages = [
+      "✨ Energy flows! ✨",
+      "🌙 Stars awaken… 🌙",
+      "💫 Light dances! 💫",
+      "🔥 Portal glows! 🔥"
+    ];
 
-        setTimeout(() => sparkle.remove(), 2000 + Math.random() * 1000);
-      });
-    </script>
-  </body>
+    magicBtn.addEventListener("click", () => {
+      // sparkle animation
+      magicBtn.classList.add("clicked");
+      setTimeout(() => magicBtn.classList.remove("clicked"), 1000);
+
+      // show random message
+      msg.innerText = messages[Math.floor(Math.random() * messages.length)];
+    });
+
+    // Mouse trail sparkles
+    let lastSparkle = 0;
+    document.addEventListener("mousemove", (e) => {
+      const now = Date.now();
+      if (now - lastSparkle < 150) return;
+      lastSparkle = now;
+      if (Math.random() < 0.3) return;
+
+      const sparkle = document.createElement("div");
+      sparkle.textContent = "✨";
+      sparkle.className = "sparkle";
+
+      const offsetX = (Math.random() - 0.5) * 30;
+      const offsetY = (Math.random() - 0.5) * 30;
+      sparkle.style.left = e.clientX + offsetX + "px";
+      sparkle.style.top = e.clientY + offsetY + "px";
+      const size = 12 + Math.random() * 12;
+      sparkle.style.fontSize = size + "px";
+
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        const moveX = (Math.random() - 0.5) * 100;
+        const moveY = -50 - Math.random() * 150;
+        const scale = 1 + Math.random();
+        sparkle.style.transform = `translate(${moveX}px, ${moveY}px) scale(${scale})`;
+        sparkle.style.opacity = 0;
+      }, 0);
+
+      setTimeout(() => sparkle.remove(), 2000 + Math.random() * 1000);
+    });
+
+    // Background floating sparkles
+    const sparkleCount = 30;
+    for(let i=0;i<sparkleCount;i++){
+      const s = document.createElement("div");
+      s.className = "bg-sparkle";
+      s.textContent = "✨";
+      s.style.left = Math.random()*100 + "vw";
+      s.style.top = Math.random()*100 + "vh";
+      s.style.fontSize = (5 + Math.random()*10) + "px";
+      s.style.animationDuration = (5 + Math.random()*10) + "s";
+      document.body.appendChild(s);
+    }
+
+  </script>
+</body>
 </html>
