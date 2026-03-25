@@ -42,7 +42,9 @@ CLICK - - HERE - - - → ## 🌟  [💾 Download Portal ZIP](https://github.com/
 	- On Linux: Right-click → Extract Here or use your archive manager
 3. Open the portal
 	- Go into the extracted folder
-	- Double-click index.html
+	- Double-click index.html. --> Yes, click it double!!!!!! INDEX.HTML!!!!!!!!!!
+
 	- Your magical portal will open in your browser! ✨🛸
+
 Have fun exploring the stars and sparkles! 🌙💫
 
