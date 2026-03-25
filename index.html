@@ -139,7 +139,23 @@
       margin-top: 20px;
       min-height: 2em;
     }
+ /* Floating/wavy message */
+  @keyframes floatMsg {
+    0%   { transform: translate(0px, 0px); }
+    20%  { transform: translate(5px, -3px); }
+    40%  { transform: translate(-4px, 2px); }
+    60%  { transform: translate(3px, -2px); }
+    80%  { transform: translate(-5px, 1px); }
+    100% { transform: translate(0px, 0px); }
+  }
 
+  #msg {
+    font-size: 1.5em;
+    margin-top: 20px;
+    min-height: 2em;
+    display: inline-block;  /* necessary for transform */
+    animation: floatMsg 6s ease-in-out infinite;
+  }
   </style>
 </head>
 <body>
